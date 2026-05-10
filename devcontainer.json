@@ -5,26 +5,18 @@
     "context": "."
   },
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": false
-    },
-    "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest"
-    }
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "postAttachCommand": {
-    "expose": "gh codespace ports visibility 443:public -c $CODESPACE_NAME",
-    "start": "sudo /usr/local/bin/xray run -c /etc/xray/config.json"
-  },
+  "postCreateCommand": "chmod +x /tmp/show-link.sh",
+  "postAttachCommand": [
+    "sudo /usr/local/bin/xray run -c /etc/xray/config.json",
+    "sleep 3 && /tmp/show-link.sh"
+  ],
   "portsAttributes": {
     "443": {
-      "label": "proxy",
-      "protocol": "https",
+      "label": "Proxy",
       "onAutoForward": "silent"
     }
   },
-  "forwardPorts": [443],
-  "hostRequirements": {
-    "cpus": 2
-  }
+  "forwardPorts": [443]
 }

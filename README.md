@@ -1,11 +1,7 @@
-#!/bin/sh
-set -e
+# codespace-proxy
 
-RELEASE="https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-64.zip"
-TMPDIR="$(mktemp -d)"
+A simple and clean GitHub Codespace tunnel.
 
-curl -sL "$RELEASE" -o "$TMPDIR/xray.zip"
-unzip -q "$TMPDIR/xray.zip" -d "$TMPDIR"
-install -m 755 "$TMPDIR/xray" /usr/local/bin/xray
-
-rm -rf "$TMPDIR"
+### How to use:
+velesh kon
+**Done!** 🚀
