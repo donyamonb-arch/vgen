@@ -1,7 +1,5 @@
 # codespace-proxy
 
-A simple and clean GitHub Codespace tunnel.
+بعد از باز کردن Codespace، لینک اتصال VLESS به صورت خودکار در ترمینال نمایش داده می‌شود.
 
-### How to use:
-velesh kon
-**Done!** 🚀
+**فقط Fork کنید → Codespaces → Create**

@@ -4,19 +4,11 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {}
-  },
-  "postCreateCommand": "chmod +x /tmp/show-link.sh",
-  "postAttachCommand": [
-    "sudo /usr/local/bin/xray run -c /etc/xray/config.json",
-    "sleep 3 && /tmp/show-link.sh"
-  ],
+  "forwardPorts": [443],
   "portsAttributes": {
     "443": {
-      "label": "Proxy",
+      "label": "VLESS Proxy",
       "onAutoForward": "silent"
     }
-  },
-  "forwardPorts": [443]
+  }
 }

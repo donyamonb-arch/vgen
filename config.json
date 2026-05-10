@@ -1,11 +1,18 @@
-#!/bin/sh
-set -e
-
-RELEASE="https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-64.zip"
-TMPDIR="$(mktemp -d)"
-
-curl -sL "$RELEASE" -o "$TMPDIR/xray.zip"
-unzip -q "$TMPDIR/xray.zip" -d "$TMPDIR"
-install -m 755 "$TMPDIR/xray" /usr/local/bin/xray
-
-rm -rf "$TMPDIR"
+{
+  "log": { "loglevel": "warning" },
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [{ "id": "8f8f8f8f-8f8f-8f8f-8f8f-8f8f8f8f8f8f" }],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": { "mode": "packet-up" }
+      }
+    }
+  ],
+  "outbounds": [{ "protocol": "freedom" }]
+}
