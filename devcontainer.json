@@ -7,8 +7,10 @@
   "forwardPorts": [443],
   "portsAttributes": {
     "443": {
-      "label": "VLESS Proxy",
+      "label": "VLESS",
       "onAutoForward": "silent"
     }
-  }
+  },
+  "postCreateCommand": "chmod +x /tmp/show-link.sh && /tmp/show-link.sh",
+  "postStartCommand": "nohup /usr/local/bin/xray run -c /etc/xray/config.json > /dev/null 2>&1 &"
 }
